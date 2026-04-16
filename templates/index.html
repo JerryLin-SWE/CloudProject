@@ -11,7 +11,16 @@
         <button type="submit">Find Primes</button>
     </form>
 
-    <h2>Results:</h2>
-    <p>{{ primes }}</p>
+    {% if execution_id %}
+        <h2>Job Triggered!</h2>
+        <p>Cloud Run Job execution ID: <strong>{{ execution_id }}</strong></p>
+        <p>The job is computing primes in the background. Check Cloud Run logs to see the results.</p>
+    {% endif %}
+
+    {% if error %}
+        <h2>Error</h2>
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
 
 </body>
+</html>
